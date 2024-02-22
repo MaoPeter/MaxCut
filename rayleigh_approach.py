@@ -1,6 +1,7 @@
 import numpy
 import scipy
 import cut_value
+import math
 
 # Find a cut of a weighted graph (specified by the symmetric matrix W)
 # based on rounding the eigenvector associated with the smallest eigenvalue
@@ -18,4 +19,12 @@ def maxCutRayleighPerturbed(W):
     noise = numpy.random.normal(0,0.01,s)
     evals_large, evecs_large = scipy.linalg.eigh(weightArr+noise, eigvals=(0,0))
     partition = [1 if evecs_large[i] >= 0 else -1 for i in range(len(evecs_large))]
+    return (partition, cut_value.cutValue(W,partition))
+
+def maxCutRayleighAveraged(W):
+    weightArr = numpy.array(W)
+    s = weightArr.shape
+    summands = math.floor(s[0]/4)
+    evals_large, evecs_large = scipy.linalg.eigh(weightArr, eigvals=(0,summands))
+    partition = [1 if sum(evecs_large[i])/(summands+1) >= 0 else -1 for i in range(len(evecs_large))]
     return (partition, cut_value.cutValue(W,partition))
