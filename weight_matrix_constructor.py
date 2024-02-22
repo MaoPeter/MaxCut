@@ -3,7 +3,7 @@ def makeWeightArray(name, size, parameters=[]):
     W = []
     match name:
         case "Complete":
-            W = [[1 for j in range(size)] for i in range(size)]
+            W = [[1 if i != j else 0 for j in range(size)] for i in range(size)]
         case "Cycle":
             W = [[1 if j == (i+1) % size or j == (i-1) % size else 0 for j in range(size)] for i in range(size)]
         case "CompleteBipartite": #where parameters[0] is the largest vertex in the first partition
