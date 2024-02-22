@@ -1,3 +1,4 @@
+# Generate a weight matrix
 def makeWeightArray(name, size, parameters=[]):
     W = []
     match name:
