@@ -19,5 +19,7 @@ print("status:", problem.status)
 print("optimal value", problem.value)
 print("optimal var", X.value)
 
+decomposition = numpy.linalg.svd(X.value, full_matrices = True, compute_uv = true, hermitian = True)
+
 #print(W)
 #print(W@ np.ones((12, 12)))
