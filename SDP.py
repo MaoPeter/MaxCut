@@ -22,15 +22,3 @@ def maxCutGoemansWilliamson(n, weightArray):
     separation = U @ r
     partition = [1 if separation[i] >= 0 else -1 for i in range(n)]
     return partition
-
-
-
-
-
-
-
-
-
-
-
-#print(U @ U.T) #Recompose check
