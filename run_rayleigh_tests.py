@@ -6,7 +6,7 @@ import weight_matrix_constructor
 #Try complete bipartite
 print("Bipartite with 15 vertices and split 10,5")
 n,m = 15, 10
-W = weight_matrix_constructor.makeWeightArray("CompleteBipartite", n, [m-1])
+W = weight_matrix_constructor.makeWeightArray("CompleteBipartite", n, parameters=[m-1])
 partition, cut = rayleigh_approach.maxCutRayleigh(W)
 print(partition)
 print(cut)
