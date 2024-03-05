@@ -19,6 +19,14 @@ def makeWeightArray(name, size=0, *, parameters=[], filename=""):
             for row in data[1:]:
                 W[row[0]-1][row[1]-1] = row[2]
                 W[row[1]-1][row[0]-1] = row[2]
+        case "Random":
+            if len(parameters) > 0:
+                np.random.seed(parameters[0])
+            W = [[round(np.random.rand()) if i <= j else 0 for i in range(size)] for j in range(size)]
+            for j in range(size):
+                for i in range(size):
+                    if W[i][j] == 0:
+                        W[i][j] = W[j][i]
         case _:
             return
     return W
