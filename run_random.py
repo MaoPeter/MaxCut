@@ -9,7 +9,6 @@ if len(sys.argv) > 1:
     weightArr = weight_matrix_constructor.makeWeightArray("Random", n, parameters=[seed])
 else:
     weightArr = weight_matrix_constructor.makeWeightArray("Random", n)
-partition = SDP.maxCutGoemansWilliamson(n, weightArr)
+partition, cut = SDP.maxCutGoemansWilliamson(n, weightArr)
 print(partition)
-cut = cut_value.cutValue(weightArr, partition)
 print(cut)
