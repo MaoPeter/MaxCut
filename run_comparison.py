@@ -17,7 +17,7 @@ else:
         rayleigh_perturbed_graphs = []
         for i in range(int(10000 / n)):
             W = weight_matrix_constructor.makeWeightArray("Random", n, parameters=[np.random.randint(2**32 - 1), 0.6])
-            SDP_partition, SDP_cut = SDP.maxCutGoemansWilliamson(n, W)
+            SDP_partition, SDP_cut, SDP_val = SDP.maxCutGoemansWilliamson(n, W)
             rayleigh_partition, rayleigh_cut = rayleigh_approach.maxCutRayleigh(W)
             rayleigh_perturbed_partition, rayleigh_perturbed_cut = rayleigh_approach.maxCutRayleighPerturbed(W)
             if SDP_cut > rayleigh_cut and SDP_cut > rayleigh_perturbed_cut:

@@ -36,4 +36,4 @@ def maxCutGoemansWilliamson(n, weightArray):
         if latest_cut > best_cut:
             best_partition = partition
             best_cut = latest_cut
-    return (best_partition, latest_cut)
+    return (best_partition, latest_cut, problem.value)

@@ -10,6 +10,6 @@ else:
 
     weightArr = weight_matrix_constructor.makeWeightArray("File", filename=file)
     n = len(weightArr)
-    partition, cut = SDP.maxCutGoemansWilliamson(n, weightArr)
+    partition, cut, SDP_val = SDP.maxCutGoemansWilliamson(n, weightArr)
     print(partition)
     print(cut)
