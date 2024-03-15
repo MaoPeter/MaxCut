@@ -12,3 +12,4 @@ else:
 partition, cut, SDP_val = SDP.maxCutGoemansWilliamson(n, weightArr)
 print(partition)
 print(cut)
+print(SDP_val)
